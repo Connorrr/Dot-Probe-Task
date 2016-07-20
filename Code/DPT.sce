@@ -62,6 +62,10 @@ text{
 	caption = "Congratulations!  You have finished all trials.  Thank you for your participation.";
 }goodbye_text;
 
+text{
+	caption = "+"; font_size = 40; font_color = 255,255,0;
+}fixation_text;
+
 ########################### Pictures #########################
 
 picture{
@@ -73,16 +77,18 @@ picture{
 }instructions_pic2;
 
 picture{
-	text top_text; x = 0; y = 200;
-	text bottom_text; x = 0; y = -200;
+	text top_text; x = 0; y = 100;
+	text bottom_text; x = 0; y = -100;
+	text fixation_text; x = 0; y = 0;
 }main_pic;
 
 picture{
-	text{caption = "+"; font_size = 40; font_color = 255,255,0;}fixation_text; x = 0; y = 0;
+	text fixation_text; x = 0; y = 0;
 }fixation_pic;
 
 picture{
 	text{caption = "<"; font_size = 50;}response_text; x = 0; y = 0;
+	text fixation_text; x = 0; y = 0;
 }response_pic;
 
 picture{

@@ -43,7 +43,12 @@ begin
 		count = count + 1;
 	end;
 
-	print_2d_array(stim);
+	#print_2d_array(stim);
+end;
+
+sub setPictures begin
+	main_pic.set_part_y(1, YPOS);
+	main_pic.set_part_y(2, -1*YPOS);
 end;
 
 ####  Get response after main trial has been presented.  Returns the reation time.
@@ -64,7 +69,7 @@ end;
 
 ## Save Output Data  Trial No,Trial Type,Top Word,Bottom Word,Response,RT,Correct
 sub
-saveTrialData(output_file out,int trialNo,string trialType,string topWord,string bottomWord,int resp,int rt,int corr)
+saveTrialData(output_file out,int trialNo,string trialType,string topWord,string bottomWord,int resp,int rt,int corr,int arrow,int arrowPos)
 begin
 	out.print(trialNo);
 	out.print(",");
@@ -79,42 +84,96 @@ begin
 	out.print(rt);
 	out.print(",");
 	out.print(corr);
+	out.print(",");
+	out.print(arrow);
+	out.print(",");
+	out.print(arrowPos);
 	out.print("\n");
+end;
+
+##  Sets the '<' or '>' character depending on the value sent through (1-4)
+sub setResponsePos(int k, array <int, 1>& arrow) begin
+	if (k == 1) then	## < Top
+		response_pic.set_part_y(1,YPOS);
+		response_text.set_caption("<");
+		response_text.redraw();
+		arrow[1] = 1;
+		arrow[2] = 1;
+	elseif (k == 2) then	## > Top
+		response_pic.set_part_y(1,YPOS);
+		response_text.set_caption(">");
+		response_text.redraw();
+		arrow[1] = 2;
+		arrow[2] = 1;
+	elseif(k == 3) then	## < Bottom
+		response_pic.set_part_y(1,-1*YPOS);
+		response_text.set_caption("<");
+		response_text.redraw();
+		arrow[1] = 1;
+		arrow[2] = 2;
+	elseif(k == 4) then	## > Bottom
+		response_pic.set_part_y(1,-1*YPOS);
+		response_text.set_caption(">");
+		response_text.redraw();
+		arrow[1] = 2;
+		arrow[2] = 2;
+	end;
+end;
+
+## Get Word Pair Variations
+sub getWordPairVariations(array <string, 2>& wordPairs, string firstWord, string secondWord)begin
+	loop int i = 1; until i > wordPairs.count() begin
+		
+		if (mod(i,2) == 0) then # is even
+			wordPairs[i][1] = firstWord;
+			wordPairs[i][2] = secondWord;
+		else
+			wordPairs[i][1] = secondWord;
+			wordPairs[i][2] = firstWord;
+		end;
+		
+		i = i + 1;
+	end;
+	wordPairs.shuffle();
 end;
 
 ## Used to present trials for either the practice or main block
 ## Takes stim array and the Trial type String and output file
 sub presentTrials(array <string, 2>& stim, string trialType, output_file out) begin
+	int trialNo = 1;
 	int i=0;
 	loop 
 		i = 1;
 	until 
 		i > stim.count()		#  Loop through rows in csv
 	begin
-		int arrow = random(1,2);		#  Direction, left for 1 and right for 2
 		array <int> resp[3] = {0,0,0};	# RT, isCorrect, Button Pressed
 		
-		fixation_trial.present();
+		array <int> responsePos[8] = {1,2,3,4,1,2,3,4};		#  4 different arrow positions/directions for 2 word positions
+		array <string> wordPairs[8][2];
+		getWordPairVariations(wordPairs, stim[i][1], stim[i][2]);
+		responsePos.shuffle();
+		loop int j = 1; until j > responsePos.count() begin
+			array <int> arrow[2]={0,0};
+			fixation_trial.present();
 		
-		top_text.set_caption(stim[i][1]);
-		bottom_text.set_caption(stim[i][2]);
-		top_text.redraw();
-		bottom_text.redraw();
-		
-		main_trial.present();
-		
-		if(arrow == 1) then
-			response_text.set_caption("<");
-			response_text.redraw();
-		else
-			response_text.set_caption(">");
-			response_text.redraw();
+			top_text.set_caption(wordPairs[j][1]);
+			bottom_text.set_caption(wordPairs[j][2]);
+			top_text.redraw();
+			bottom_text.redraw();
+			
+			main_trial.present();
+			
+			setResponsePos(responsePos[j],arrow);	
+			
+			response_trial.present();
+			getResponse(resp,arrow[1]);
+			
+			saveTrialData(out,trialNo,trialType,wordPairs[j][1],wordPairs[j][2],resp[3],resp[1],resp[2],arrow[1],arrow[2]);
+			
+			trialNo = trialNo + 1;
+			j = j + 1;
 		end;
-		
-		response_trial.present();
-		getResponse(resp,arrow);
-		
-		saveTrialData(out,i,trialType,stim[i][1],stim[i][2],resp[3],resp[1],resp[2]);
 		
 		i = i + 1;
 	end;

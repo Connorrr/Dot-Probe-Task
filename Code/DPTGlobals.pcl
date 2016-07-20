@@ -6,3 +6,5 @@
 #ModifiedBy:	Connor Reid
 #Copyright@: 	School Of Psychology, Griffith University
 #-------------------------------------------------------------------
+
+int YPOS = 100;		##  Position of word on y axis
