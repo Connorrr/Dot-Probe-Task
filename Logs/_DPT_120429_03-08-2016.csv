@@ -1,0 +1,14 @@
+student number: ,Age: 18,Gender: 1
+Trial No,Trial Type,Top Word,Bottom Word,Response,RT,Correct,Arrow(1:L 2:R),Arrow Pos(1:T 2:B),
+1,Practice,input,localized,2,685,1,2,1
+2,Practice,localized,input,1,394,1,1,1
+3,Practice,checkers,keyboard,1,556,0,2,1
+4,Practice,keyboard,checkers,1,582,1,1,1
+5,Practice,flatten,linear,1,584,1,1,1
+6,Practice,linear,flatten,1,529,1,1,2
+7,Practice,rectangular,subsequent,2,541,1,2,2
+8,Practice,subsequent,rectangular,2,537,1,2,1
+9,Practice,midst,adobe,2,500,1,2,2
+10,Practice,adobe,midst,1,609,1,1,2
+11,Practice,aluminium,banner,1,809,1,1,2
+12,Practice,banner,aluminium,1,450,1,1,2

@@ -39,10 +39,10 @@ Press the spacebar when you are ready to continue.";
 }instructions_text;
 
 text{
-	caption = "If you see the < key, please press the ‘z’ key on your keyboard as quickly as you can
+	caption = "That is the end of the Practice Trials.\n\n\n\n  Instructions:\nIf you see the < key, please press the ‘z’ key on your keyboard as quickly as you can\n
 If you see the > key, please press the ‘/’ key on your keyboard as quickly as you can
 
-Please place your index or middle finger on the ‘z’ or ‘/’ key now.
+Please place your index or middle finger on the ‘z’ and ‘/’ key now.
 
 Press the spacebar when you are ready to continue.";
 
@@ -79,7 +79,7 @@ picture{
 picture{
 	text top_text; x = 0; y = 100;
 	text bottom_text; x = 0; y = -100;
-	text fixation_text; x = 0; y = 0;
+	#text fixation_text; x = 0; y = 0;
 }main_pic;
 
 picture{
@@ -88,7 +88,7 @@ picture{
 
 picture{
 	text{caption = "<"; font_size = 50;}response_text; x = 0; y = 0;
-	text fixation_text; x = 0; y = 0;
+	#text fixation_text; x = 0; y = 0;
 }response_pic;
 
 picture{

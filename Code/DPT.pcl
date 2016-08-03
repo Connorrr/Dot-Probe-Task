@@ -31,7 +31,7 @@ mainWords.shuffle();
 
 instructions_trial.present();
 
-presentTrials(practiceWords, "Practice", out);
+presentPracticeTrials(practiceWords, "Practice", out);
 
 instructions_trial2.present();
 

@@ -1,0 +1,15 @@
+student number: ,Age: 18,Gender: 1
+Trial No,Trial Type,Top Word,Bottom Word,Response,RT,Correct,Arrow(1:L 2:R),Arrow Pos(1:T 2:B),
+1,Practice,matchbook,informal,2,2521,1,2,1
+2,Practice,informal,matchbook,1,724,1,1,1
+3,Practice,infuser,multitude,2,576,1,2,1
+4,Practice,multitude,infuser,1,522,1,1,1
+5,Practice,ten,marksman,1,734,1,1,1
+6,Practice,marksman,ten,1,505,1,1,2
+7,Practice,rectangular,subsequent,2,446,1,2,2
+8,Practice,subsequent,rectangular,2,581,1,2,1
+9,Practice,aluminium,banner,2,471,1,2,2
+10,Practice,banner,aluminium,1,453,1,1,2
+11,Practice,contrast,edition,1,396,1,1,2
+12,Practice,edition,contrast,1,582,1,1,2
+13,Practice,indicate,geometric,2,639,1,2,2

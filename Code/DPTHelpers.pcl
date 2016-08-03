@@ -178,3 +178,54 @@ sub presentTrials(array <string, 2>& stim, string trialType, output_file out) be
 		i = i + 1;
 	end;
 end;
+
+## Used to present practice trials 
+## Takes stim array and the Trial type String and output file
+sub presentPracticeTrials(array <string, 2>& stim, string trialType, output_file out) begin
+	int trialNo = 1;
+	int i=0;
+	int k = 1;
+	loop 
+		i = 1;
+	until 
+		i > stim.count()		#  Loop through rows in csv
+	begin
+		array <int> resp[3] = {0,0,0};	# RT, isCorrect, Button Pressed
+		array <int> positions[30] = {2,1,2,1,1,3,4,2,4,3,3,3,4,1,4,3,3,2,2,1,2,4,2,3,4,1,1,3,4,2};	#psuedo random positions and directions for the arrows
+		loop int j = 1; until j > 2 begin		##  Only 2 presentation of words
+			array <int> arrow[2]={0,0};
+			fixation_trial.present();
+			string topWord = "";
+			string bottomWord = "";
+			
+			if(j == 1) then
+				topWord = stim[i][1];
+				bottomWord = stim[i][2];
+			else
+				topWord = stim[i][2];
+				bottomWord = stim[i][1];
+			end;
+			
+			top_text.set_caption(topWord);
+			bottom_text.set_caption(bottomWord);
+				
+			top_text.redraw();
+			bottom_text.redraw();
+			
+			main_trial.present();
+			
+			setResponsePos(positions[k],arrow);	
+			
+			response_trial.present();
+			getResponse(resp,arrow[1]);
+			
+			saveTrialData(out,trialNo,trialType,topWord,bottomWord,resp[3],resp[1],resp[2],arrow[1],arrow[2]);
+			
+			trialNo = trialNo + 1;
+			k = k + 1;
+			j = j + 1;
+		end;
+		
+		i = i + 1;
+	end;
+end;
