@@ -2,7 +2,7 @@
 #Description:	Contains the additional subroutines used in the experiment
 #Programmer:	Connor Reid (Psy Technician)
 #Created@:		15/07/2016
-#LastMod@:		15/07/2016
+#LastMod@:		4/08/2016
 #ModifiedBy:	Connor Reid
 #Copyright@: 	School Of Psychology, Griffith University
 #-------------------------------------------------------------------
@@ -137,44 +137,65 @@ sub getWordPairVariations(array <string, 2>& wordPairs, string firstWord, string
 	wordPairs.shuffle();
 end;
 
+##  This sub takes the words list and duplicates it 8x and assigns it a with arrow direction and placement
+sub buildMainTrialList(array <string, 2>& inArray, array <string, 2>& outArray)begin
+	array <int> responsePos[8] = {1,2,3,4,1,2,3,4};		#  4 different arrow positions/directions for 2 word positions
+	array <string> tmp[3] = {"","",""};
+	loop
+		int i = 1
+	until 
+		i > inArray.count()
+	begin
+		loop
+			int j = 1
+		until 
+			j > 8
+		begin
+			if (j < 5) then
+				tmp[1] = inArray[i][1]; tmp[2] = inArray[i][2]; tmp[3] = string(responsePos[j]); 
+			else
+				tmp[1] = inArray[i][2]; tmp[2] = inArray[i][1]; tmp[3] = string(responsePos[j]); 
+			end;
+			outArray.add(tmp);
+			j = j + 1;
+		end;
+		i = i + 1;
+	end;
+	#print_2d_array(outArray);
+end;
+
 ## Used to present trials for either the practice or main block
 ## Takes stim array and the Trial type String and output file
 sub presentTrials(array <string, 2>& stim, string trialType, output_file out) begin
-	int trialNo = 1;
+	array <string> fullStim[0][0];
+	buildMainTrialList(stim,fullStim);
+	fullStim.shuffle();
 	int i=0;
 	loop 
 		i = 1;
 	until 
-		i > stim.count()		#  Loop through rows in csv
+		i > fullStim.count()		#  Loop through trials
 	begin
 		array <int> resp[3] = {0,0,0};	# RT, isCorrect, Button Pressed
 		
-		array <int> responsePos[8] = {1,2,3,4,1,2,3,4};		#  4 different arrow positions/directions for 2 word positions
-		array <string> wordPairs[8][2];
-		getWordPairVariations(wordPairs, stim[i][1], stim[i][2]);
-		responsePos.shuffle();
-		loop int j = 1; until j > responsePos.count() begin
-			array <int> arrow[2]={0,0};
-			fixation_trial.present();
+		array <int> arrow[2]={0,0};
 		
-			top_text.set_caption(wordPairs[j][1]);
-			bottom_text.set_caption(wordPairs[j][2]);
-			top_text.redraw();
-			bottom_text.redraw();
-			
-			main_trial.present();
-			
-			setResponsePos(responsePos[j],arrow);	
-			
-			response_trial.present();
-			getResponse(resp,arrow[1]);
-			
-			saveTrialData(out,trialNo,trialType,wordPairs[j][1],wordPairs[j][2],resp[3],resp[1],resp[2],arrow[1],arrow[2]);
-			
-			trialNo = trialNo + 1;
-			j = j + 1;
-		end;
+		fixation_trial.present();
 		
+		top_text.set_caption(fullStim[i][1]);
+		bottom_text.set_caption(fullStim[i][2]);
+		top_text.redraw();
+		bottom_text.redraw();
+			
+		main_trial.present();
+			
+		setResponsePos(int(fullStim[i][3]),arrow);	
+			
+		response_trial.present();
+		getResponse(resp,arrow[1]);
+			
+		saveTrialData(out,i,trialType,fullStim[i][1],fullStim[i][2],resp[3],resp[1],resp[2],arrow[1],arrow[2]);
+			
 		i = i + 1;
 	end;
 end;

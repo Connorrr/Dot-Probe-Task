@@ -1,8 +1,41 @@
 Scenario - DPT
-Logfile written - 07/22/2016 10:44:06
+Logfile written - 08/04/2016 11:46:51
 
 Subject	Trial	Event Type	Code	Time	TTime	Uncertainty	Duration	Uncertainty	ReqTime	ReqDur	Stim Type	Pair Index
 
-serfysdrt	1	Response	3	26728	25728	1
-serfysdrt	4	Response	1	45847	11148	1
-serfysdrt	7	Quit		71286	18070
+Connor	1	Response	3	193941	193608	1
+Connor	4	Response	2	209540	8183	1
+Connor	7	Response	1	220660	3622	1
+Connor	10	Response	2	231059	3011	1
+Connor	13	Response	1	243458	4900	1
+Connor	16	Response	1	256178	5275	1
+Connor	19	Response	2	267217	3635	1
+Connor	20	Response	1	268257	1005	1
+Connor	22	Response	2	279616	5024	1
+Connor	25	Response	2	290977	3873	1
+Connor	28	Response	2	303775	5327	1
+Connor	31	Response	1	315136	3842	1
+Connor	34	Response	1	326974	4336	1
+Connor	37	Response	1	338015	3533	1
+Connor	40	Response	2	349213	3720	1
+Connor	43	Response	1	360492	3822	1
+Connor	46	Response	2	371773	3926	1
+Connor	49	Response	1	383451	4260	1
+Connor	52	Response	1	395130	4261	1
+Connor	55	Response	2	406487	3940	4
+Connor	58	Response	2	417611	3720	1
+Connor	61	Response	1	429450	4382	1
+Connor	64	Response	2	441368	4455	1
+Connor	67	Response	2	454807	6050	1
+Connor	70	Response	2	467446	5176	1
+Connor	73	Response	1	479527	4578	1
+Connor	76	Response	2	493125	6165	1
+Connor	79	Response	1	505284	4644	1
+Connor	82	Response	1	517684	5033	1
+Connor	85	Response	1	529443	4280	1
+Connor	88	Response	2	544403	7562	1
+Connor	91	Response	2	562242	10387	1
+Connor	92	Response	3	578241	15876	1
+Connor	95	Response	1	588960	3240	1
+Connor	96	Response	2	590480	1423	1
+Connor	98	Quit		598719	2322
