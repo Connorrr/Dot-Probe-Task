@@ -103,25 +103,25 @@ end;
 sub setResponsePos(int k, array <int, 1>& arrow) begin
 	if (k == 1) then	## < Top
 		response_pic.set_part_y(1,YPOS);
-		response_text.set_caption("<");
+		response_text.set_caption(".");
 		response_text.redraw();
 		arrow[1] = 1;
 		arrow[2] = 1;
 	elseif (k == 2) then	## > Top
 		response_pic.set_part_y(1,YPOS);
-		response_text.set_caption(">");
+		response_text.set_caption("..");
 		response_text.redraw();
 		arrow[1] = 2;
 		arrow[2] = 1;
 	elseif(k == 3) then	## < Bottom
 		response_pic.set_part_y(1,-1*YPOS);
-		response_text.set_caption("<");
+		response_text.set_caption(".");
 		response_text.redraw();
 		arrow[1] = 1;
 		arrow[2] = 2;
 	elseif(k == 4) then	## > Bottom
 		response_pic.set_part_y(1,-1*YPOS);
-		response_text.set_caption(">");
+		response_text.set_caption("..");
 		response_text.redraw();
 		arrow[1] = 2;
 		arrow[2] = 2;

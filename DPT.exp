@@ -337,12 +337,12 @@
 <idv>
 <device_type>3</device_type>
 <dx_device_type>19</dx_device_type>
-<ibn>Z</ibn>
-<ibn>/</ibn>
+<ibn>Left</ibn>
+<ibn>Right</ibn>
 <ibn>Space</ibn>
 <idn>Keyboard</idn>
-<offset>44</offset>
-<offset>53</offset>
+<offset>203</offset>
+<offset>205</offset>
 <offset>57</offset>
 </idv>
 <sfn>H:\Projects\Dot Probe Task\Code\DPT.sce</sfn>
