@@ -1,0 +1,12 @@
+student number: ,Age: 18,Gender: 1
+Trial No,Trial Type,Top Word,Bottom Word,Response,RT,Correct,Dot(1: . 2: ..),Dot Pos(1:T 2:B),
+1,Practice,collar,washer,3,819,0,2,1
+2,Practice,logistics,diagonal,2,767,1,2,1
+3,Practice,indicate,geometric,2,953,0,1,1
+4,Practice,contrast,edition,2,1020,1,2,1
+5,Practice,banner,aluminium,1,1499,1,1,1
+6,Practice,ten,marksman,1,1232,1,1,2
+7,Practice,matchbook,informal,1,1095,1,1,1
+8,Practice,marksman,ten,2,1108,1,2,2
+9,Practice,infuser,multitude,1,1064,1,1,1
+10,Practice,linear,flatten,2,910,1,2,2
