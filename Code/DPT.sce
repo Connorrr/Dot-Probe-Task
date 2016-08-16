@@ -27,22 +27,22 @@ begin;
 text{
 	caption = "In the following task you will see a fixation cross “+” in the center of your screen. Please use this fixation cross to focus your vision.
 You will be presented with two words, one above and one below the center of the screen for a very brief amount of time.
-After the words are presented to you, you will see either a < or > key.
-If you see the < key, please press the ‘z’ key on your keyboard as quickly as you can
-If you see the > key, please press the ‘/’ key on your keyboard as quickly as you can
+After the words are presented to you, you will see either . or ..
+If you see . , please press the Left Arrow key on your keyboard as quickly as you can
+If you see .. , please press the Right Arrow key on your keyboard as quickly as you can
 
-Please place your index or middle finger on the ‘z’ or ‘/’ key now.
+Please place your index and middle finger on the Left and Right Arrow key now.
 
-Before completing the trials, you will be presented with 10 practice trials.
+Before completing the trials, you will be presented with practice trials.
 
 Press the spacebar when you are ready to continue.";
 }instructions_text;
 
 text{
-	caption = "That is the end of the Practice Trials.\n\n\n\n  Instructions:\nIf you see the < key, please press the ‘z’ key on your keyboard as quickly as you can\n
-If you see the > key, please press the ‘/’ key on your keyboard as quickly as you can
+	caption = "That is the end of the Practice Trials.\n\n\n\n  Instructions:\nIf you see . , please press the Left Arrow key on your keyboard as quickly as you can\n
+If you see .. , please press the RightArrow key on your keyboard as quickly as you can
 
-Please place your index or middle finger on the ‘z’ and ‘/’ key now.
+Please place your index and middle finger on the Left and Right Arrow key now.
 
 Press the spacebar when you are ready to continue.";
 
