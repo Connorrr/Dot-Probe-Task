@@ -1,0 +1,5 @@
+student number: ,Age: 18,Gender: F
+Trial No,Trial Type,Top Word,Bottom Word,Response,RT,Correct,Dot(1: . 2: ..),Dot Pos(1:T 2:B),
+1,Practice,edition,contrast,1,684,0,2,1
+2,Practice,collar,washer,0,0,0,1,1
+3,Practice,subsequent,rectangular,2,545,1,2,2

@@ -124,7 +124,7 @@ trial{
 }main_trial;
 
 trial{
-	trial_duration = forever;
+	trial_duration = 1500;
 	trial_type = specific_response;
 	terminator_button = 1,2;
 	stimulus_event{

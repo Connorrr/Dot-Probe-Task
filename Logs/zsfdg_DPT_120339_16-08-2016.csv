@@ -1,0 +1,7 @@
+student number: zsfdg,Age: 18,Gender: 1
+Trial No,Trial Type,Top Word,Bottom Word,Response,RT,Correct,Dot(1: . 2: ..),Dot Pos(1:T 2:B),
+1,Practice,midst,adobe,1,702,0,2,1
+2,Practice,contrast,edition,2,1156,1,2,2
+3,Practice,numerical,limestone,1,1160,1,1,1
+4,Practice,flatten,linear,2,908,1,2,1
+5,Practice,geometric,indicate,2,690,1,2,1
